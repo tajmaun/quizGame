@@ -35,8 +35,6 @@ public class hello extends Activity {
 		{
 			button1.setOnClickListener(new OnClickListener()
 			{
-
-
 				public void onClick(View arg0)
 				{
 					String str=editRollno.getText().toString();  
@@ -44,8 +42,6 @@ public class hello extends Activity {
 							new Intent(getApplicationContext(), show.class);
 					browserIntent.putExtra("tag",str);
 					startActivity(browserIntent);
-
-
 				}
 
 			});
