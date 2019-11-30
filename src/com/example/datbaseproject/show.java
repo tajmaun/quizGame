@@ -16,9 +16,9 @@ public class show extends Activity {
 	String ptr="Name    :";
 	String ktr="Marks   : ";
 	SQLiteDatabase sb;
-	 ArrayList<String> list;
+	ArrayList<String> list;
 	public void onCreate(Bundle savedInstanceState)
-    {
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.file);
 		Intent intent=getIntent();
@@ -32,18 +32,18 @@ public class show extends Activity {
 			ktr+= " "+c.getString(2);
 		}
 		ListView animalList=(ListView)findViewById(R.id.listViewAnimals);
-		 list = new ArrayList<String>();
-		 ArrayAdapter<String> arrayAdapter =      
-                 new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list);
-		
-    }
+		list = new ArrayList<String>();
+		ArrayAdapter<String> arrayAdapter =      
+				new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list);
+
+	}
 	void hahaha()
 	{
-	list.add(str);
-	list.add(ptr);
-	list.add(ktr);
-	
+		list.add(str);
+		list.add(ptr);
+		list.add(ktr);
+
 	}
-	
-    
+
+
 }

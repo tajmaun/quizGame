@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 	}
 
-	
+
 }*/
 
 import com.example.datbaseproject.R;
@@ -35,68 +35,68 @@ public class MainActivity extends Activity {
 	SQLiteDatabase db;
 	String str="maun";
 	protected void onCreate(Bundle savedInstanceState)   
-   {
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.click);
 		add();
 	}
 	public void add()
-   {
- 
-		
+	{
+
+
 		entry=(Button)findViewById(R.id.addEntry);
-        srch=(Button)findViewById(R.id.Search);
-        dlte=(Button)findViewById(R.id.delete_entry);
-        db=openOrCreateDatabase(str, Context.MODE_PRIVATE, null);
+		srch=(Button)findViewById(R.id.Search);
+		dlte=(Button)findViewById(R.id.delete_entry);
+		db=openOrCreateDatabase(str, Context.MODE_PRIVATE, null);
 		entry.setOnClickListener(new OnClickListener()
-			 {
- 
-			
+		{
+
+
 			public void onClick(View arg0)
-				 {
- 
-			  Intent browserIntent = 
-                            new Intent(getApplicationContext(), play.class);
-			  browserIntent.putExtra("tag",str);
-			    startActivity(browserIntent);
-			    
- 
+			{
+
+				Intent browserIntent = 
+						new Intent(getApplicationContext(), play.class);
+				browserIntent.putExtra("tag",str);
+				startActivity(browserIntent);
+
+
 			}
- 
+
 		});
 		srch.setOnClickListener(new OnClickListener()
-		 {
+		{
 
-		
-		public void onClick(View arg0)
-			 {
 
-		  Intent browserIntent = 
-                       new Intent(getApplicationContext(), hello.class);
-		    startActivity(browserIntent);
+			public void onClick(View arg0)
+			{
 
-		}
+				Intent browserIntent = 
+						new Intent(getApplicationContext(), hello.class);
+				startActivity(browserIntent);
 
-	});
+			}
+
+		});
 		dlte.setOnClickListener(new OnClickListener()
-		 {
+		{
 
-		
-		public void onClick(View arg0)
-			 {
 
-		  Intent browserIntent = 
-                       new Intent(getApplicationContext(), play.class);
-		    startActivity(browserIntent);
+			public void onClick(View arg0)
+			{
 
-		}
+				Intent browserIntent = 
+						new Intent(getApplicationContext(), play.class);
+				startActivity(browserIntent);
 
-	});
-		
+			}
 
- 
+		});
+
+
+
 	}
 
-	
+
 
 }

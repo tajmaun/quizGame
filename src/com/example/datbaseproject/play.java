@@ -20,52 +20,52 @@ public class play extends Activity implements OnClickListener
 	EditText editRollno,editName,editMarks;
 	Button btnAdd,btnDelete,btnModify,btnView,btnViewAll,btnShowInfo;
 	SQLiteDatabase db;
-	 String DB_PATH = "/data/data/com.example.datbaseproject/databases/";
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        editRollno=(EditText)findViewById(R.id.editRollno);
-        editName=(EditText)findViewById(R.id.editName);
+	String DB_PATH = "/data/data/com.example.datbaseproject/databases/";
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		editRollno=(EditText)findViewById(R.id.editRollno);
+		editName=(EditText)findViewById(R.id.editName);
 
 
-        btnAdd=(Button)findViewById(R.id.btnAdd);
-       /* btnDelete=(Button)findViewById(R.id.btnDelete);
+		btnAdd=(Button)findViewById(R.id.btnAdd);
+		/* btnDelete=(Button)findViewById(R.id.btnDelete);
         btnModify=(Button)findViewById(R.id.btnModify);
         btnView=(Button)findViewById(R.id.btnView);
         btnViewAll=(Button)findViewById(R.id.btnViewAll);
         btnShowInfo=(Button)findViewById(R.id.btnShowInfo);*/
-        btnAdd.setOnClickListener(this);
-       /* btnDelete.setOnClickListener(this);
+		btnAdd.setOnClickListener(this);
+		/* btnDelete.setOnClickListener(this);
         btnModify.setOnClickListener(this);
         btnView.setOnClickListener(this);
         btnViewAll.setOnClickListener(this);
         btnShowInfo.setOnClickListener(this);*/
-        Intent intent=getIntent();
+		Intent intent=getIntent();
 		String type=intent.getStringExtra("tag");
 		String k=DB_PATH + type;
 		db=SQLiteDatabase.openDatabase(k, null, SQLiteDatabase.OPEN_READWRITE);
-       // db=openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
+		// db=openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
 		db.execSQL("CREATE TABLE IF NOT EXISTS student(rollno VARCHAR,name VARCHAR,marks VARCHAR);");
-    }
-    public void onClick(View view)
-    {
-    	if(view==btnAdd)
-    	{
-    		if(editRollno.getText().toString().trim().length()==0||
-    		   editName.getText().toString().trim().length()==0)
-    		{
-    			showMessage("Error", "Please enter all values");
-    			return;
-    		}
-    		db.execSQL("INSERT INTO student VALUES('"+editRollno.getText()+"','"+editName.getText()+
-    				   "','"+editMarks.getText()+"');");
-    		showMessage("Success", "Record added");
-    		clearText();
-    	}
-    	/*if(view==btnDelete)
+	}
+	public void onClick(View view)
+	{
+		if(view==btnAdd)
+		{
+			if(editRollno.getText().toString().trim().length()==0||
+					editName.getText().toString().trim().length()==0)
+			{
+				showMessage("Error", "Please enter all values");
+				return;
+			}
+			db.execSQL("INSERT INTO student VALUES('"+editRollno.getText()+"','"+editName.getText()+
+					"','"+editMarks.getText()+"');");
+			showMessage("Success", "Record added");
+			clearText();
+		}
+		/*if(view==btnDelete)
     	{
     		if(editRollno.getText().toString().trim().length()==0)
     		{
@@ -144,22 +144,22 @@ public class play extends Activity implements OnClickListener
     	{
 			showMessage("Student Management Application", "Developed By Azim");
     	}*/
-    }
-    public void showMessage(String title,String message)
-    {
-    	Builder builder=new Builder(this);
-    	builder.setCancelable(true);
-    	builder.setTitle(title);
-    	builder.setMessage(message);
-    	builder.show();
 	}
-    public void clearText()
-    {
-    	editRollno.setText("");
-    	editName.setText("");
-    	editMarks.setText("");
-    	editRollno.requestFocus();
-    }
+	public void showMessage(String title,String message)
+	{
+		Builder builder=new Builder(this);
+		builder.setCancelable(true);
+		builder.setTitle(title);
+		builder.setMessage(message);
+		builder.show();
+	}
+	public void clearText()
+	{
+		editRollno.setText("");
+		editName.setText("");
+		editMarks.setText("");
+		editRollno.requestFocus();
+	}
 }
 /*import android.app.Activity;
 import android.app.AlertDialog.Builder;
@@ -185,23 +185,23 @@ public class play extends Activity {
 			setContentView(R.layout.activity_main);
 			editRollno=(EditText)findViewById(R.id.editRollno);
 	        editName=(EditText)findViewById(R.id.editName);
-	        
+
 	        btnAdd=(Button)findViewById(R.id.btnAdd);
 	        //Intent intent=getIntent();
 		     //listView = (ListView) findViewById(R.id.sampleListView);
 			//String type=intent.getStringExtra("tag");
 			//dk = SQLiteDatabase.openDatabase(type, null, SQLiteDatabase.OPEN_READWRITE);  
-	        
+
 			add();
 		}
 	public void add()
 	   {
-	 
-		
+
+
 			btnAdd.setOnClickListener(new OnClickListener()
 			 {
 
-			
+
 			public void onClick(View arg0)
 				 {
 
@@ -236,4 +236,4 @@ public class play extends Activity {
     	editMarks.setText("");
     	editRollno.requestFocus();
     }
-	*/
+ */
